@@ -10,29 +10,29 @@ cube(`BatdongsanContent`, {
       type: `count`,
       drillMembers: [title, id]
     },
-    officeCount: {
-      sql: 'id',
-      type: 'count'
+    
+    price: {
+      sql: `price`,
+      type: `sum`
     },
 
-    averagePrice: {
-      sql: 'price',
-      type: 'avg'
+    countDistrict: {
+      sql: `location`,
+      type: `countDistinct`
+    },
+
+    countOffice: {
+      sql: `id`,
+      type: `count`
     },
 
     totalArea: {
-      sql: 'area',
-      type: 'sum'
+      sql: `area`,
+      type: `sum`
     },
-
-    avgPricebyArea: {
-      sql: `${price}/${area}`,
+    averagePrice: {
+      sql: 'price',
       type: 'avg'
-    },
-
-    price: {
-      sql: `price`,
-      type: `number`
     }
   },
   
@@ -41,14 +41,17 @@ cube(`BatdongsanContent`, {
       sql: `title`,
       type: `string`
     },
+    
     location: {
       sql: `location`,
       type: `string`
     },
+
     area: {
       sql: `area`,
       type: `number`
-    },    
+    },
+    
     id: {
       sql: `id`,
       type: `number`,
